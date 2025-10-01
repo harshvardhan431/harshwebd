@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>result</title>
+</head>
+<body>
+    <p> {{username}} your score is {{score}}</p>
+    {%if score==3%}
+       <p style="color:green">excellent</p>
+    {%elif score==2%}
+       <p style="color:red">good</p>
+    {%else%}
+       <p style="color:black">you are just like rajesh</p>
+    {%endif%}
+</body>
+</html>

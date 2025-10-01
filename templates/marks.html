@@ -1,0 +1,167 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>marks</title>
+
+</head>
+  <style>
+   
+    *  {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #004d00; /* dark green */
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    main {
+        height:600px;
+      flex: 1;
+      background-color: #add8e6; /* light blue */
+      display: flex-start;
+      flex-direction: column;
+      justify-content:space-around; 
+      align-items: center;
+      padding: 20px;
+    
+    }
+    p{
+         font-family:Arial, Helvetica, sans-serif;
+         font-size: larger;
+         font-weight:bolder;
+    }
+
+    .question {
+      width: 100%;
+    
+      
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      margin-bottom:10px;
+    }
+
+    .question label {
+      font-weight: bold;
+      color: #003300;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .options {
+      display: flex;
+      gap: 20px;
+    }
+
+    input[type="radio"] {
+      margin-right: 6px;
+      transform: scale(1);
+      transition: transform 0.2s ease-in-out;
+      cursor: pointer;
+    }
+
+    input[type="radio"]:checked {
+      transform: scale(1.2);
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: white;
+      background-color: #004d00;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #006600;
+    }
+
+    footer {
+      background-color: #004d00; /* dark green */
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #ffcc00;
+      margin-left: 10px;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+    input[type='submit']{
+       color:black;
+    }
+  </style>
+<body>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        
+          {% for category, message in messages %}
+        
+              {{ message }}
+            
+          {% endfor %}
+      
+      {% endif %}
+    {% endwith %}
+    <form method="POST" action="{{url_for('mk')}}">
+        <header>
+          w3 school quiz
+        </header>
+        <main>
+            <div class="question">
+          <div class="question1">
+        <label for="qu1"></label>
+        <p>1.do you think rajesh is boy?</p>
+          <input type="radio" value="yes" name="one" >yes
+          <input type="radio" value="no" name="one">no
+        </div>
+        <div class="question2">
+         <label for="qu2"></label>
+         <p>2.do you think vardhaman is secomd?</p>
+          <input type="radio" value="yes" name="two" >yes
+          <input type="radio" value="no" name="two">no
+         </div>
+         <div class="question3">
+         <label for="qu3"></label>
+         <p>3.do you think chicken came first on planet?</p>
+          <input type="radio" value="yes" name="three" >yes
+          <input type="radio" value="no" name="three">no
+         </div>
+         </div>
+         <div>
+          <button type="submit" name="submit">submit</button>
+         </div>
+        </main>
+        <footer>
+            &copy;copyright 123
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </footer>
+</body>
+</html>
